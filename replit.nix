@@ -1,3 +1,7 @@
 { pkgs }: {
-  deps = [ ];
+  deps = [
+    pkgs.geckodriver
+    pkgs.chromium
+    pkgs.chromedriver
+   ];
 }
