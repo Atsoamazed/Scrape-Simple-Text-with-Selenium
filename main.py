@@ -11,7 +11,7 @@ def get_driver():
   options.add_experimental_option("excludeSwitches", ["enable-automation"])
 
   driver = webdriver.Chrome(options=options)
-  driver.get("http://www.amazon.om")
+  driver.get("https://automated.pythonanywhere.com")
   return driver
 
 
