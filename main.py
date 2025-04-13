@@ -1,5 +1,5 @@
 from selenium import webdriver
-
+import time
 
 def get_driver():
   options = webdriver.ChromeOptions()
@@ -11,13 +11,23 @@ def get_driver():
   options.add_experimental_option("excludeSwitches", ["enable-automation"])
 
   driver = webdriver.Chrome(options=options)
-  driver.get("http://www.amazon.om")
+  driver.get("https://automated.pythonanywhere.com")
   return driver
 
-
-def main():
+def get_main():
   driver = get_driver()
   element = driver.find_element(by="xpath", value="/html/body/div[1]/div/h1[1]")
   return element.text
 
+def clean_text(text):
+  output = float(text.split(": ")[1])
+  return output
+
+def main():
+  driver = get_driver()
+  time.sleep(2)
+  element = driver.find_element(by="xpath", value="/html/body/div[1]/div/h1[2]")
+  return clean_text(element.text)
+
+print(get_main())
 print(main())
