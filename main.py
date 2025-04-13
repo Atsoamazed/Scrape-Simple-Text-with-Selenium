@@ -14,6 +14,10 @@ def get_driver():
   driver.get("https://automated.pythonanywhere.com")
   return driver
 
+def get_main():
+  driver = get_driver()
+  element = driver.find_element(by="xpath", value="/html/body/div[1]/div/h1[1]")
+  return element.text
 
 def clean_text(text):
   output = float(text.split(": ")[1])
@@ -25,4 +29,5 @@ def main():
   element = driver.find_element(by="xpath", value="/html/body/div[1]/div/h1[2]")
   return clean_text(element.text)
 
+print(get_main())
 print(main())
